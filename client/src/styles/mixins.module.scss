@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Catamaran:wght@600&family=Racing+Sans+One&family=Righteous&display=swap');
+$light-green: rgba(186, 255, 25, 0.507);
+$light-red: rgba(178, 34, 34, 0.425);
+
+$breakpoints: (
+  'xs': 0,
+  'sm': 480px,
+  'md': 720px,
+  'lg': 960px,
+  'xl': 1200px,
+);
+
+@mixin sm {
+  @media (max-width: map-get($breakpoints,sm)) {
+    @content;
+  }
+}
+
+@mixin btn_style {
+  border-radius: 50px;
+  font-family: 'Bruno Ace SC', cursive;
+  border: none;
+  letter-spacing: 0.04rem;
+  transition: 500ms ease-in-out;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin update_btns {
+  background-color: rgba(255, 255, 0, 0.466);
+  width: 40px;
+  height: 40px;
+}
+@mixin react_icons {
+  width: 30px;
+  height: 30px;
+}

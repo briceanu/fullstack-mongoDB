@@ -1,0 +1,142 @@
+@use './mixins.module.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Catamaran:wght@600&family=Racing+Sans+One&family=Righteous&display=swap');
+
+.header {
+  color: rgb(253, 253, 253);
+  width: 100%;
+  padding-left: 1rem;
+  font-size: clamp(1.5rem, 2.5vw, 6rem);
+}
+.app {
+  width: 100dvw;
+  min-height: 100dvh;
+  background-image: url(../assets/work.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Bruno Ace SC', cursive;
+}
+.appWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.inputWrapper {
+  display: flex;
+  gap: 1rem;
+
+  input {
+    padding: 0.5rem 1rem;
+    @include btn_style;
+    border-radius: 6px;
+  }
+  button {
+    @include btn_style;
+    &[disabled] {
+      background-color: rgba(178, 34, 34, 0.425);
+      color: white;
+    }
+    border-radius: 6px;
+    color: rgb(53, 48, 41);
+    background-color: lighten($light-green, 20%);
+    padding: 0.2rem 0.7rem;
+  }
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 1rem;
+  background-color: rgb(59, 103, 139);
+  padding: 0 1rem;
+  width: 80%;
+  border-radius: 6px;
+}
+
+.updataTodoBtn {
+  @include btn_style;
+  @include update_btns;
+  align-items: center;
+  display: flex;
+  &[disabled] {
+    background-color: rgba(178, 34, 34, 0.425);
+  }
+}
+
+.completeReactIcon {
+  @include update_btns;
+  border-radius: 50px;
+  background-color: rgb(95, 86, 86);
+  fill: rgba(186, 255, 25, 0.507);
+  & :hover {
+    cursor: pointer;
+  }
+}
+.incompleteReactIcon {
+  @include update_btns;
+  @include btn_style;
+  align-items: center;
+  display: flex;
+  background-color: $light-red;
+}
+.btn_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.2rem;
+}
+.deleteTodo {
+  @include update_btns;
+  @include btn_style;
+  background-color: $light-red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.complete {
+  color: rgb(189, 178, 178);
+  text-decoration: line-through;
+}
+.incomplete {
+  color: rgb(167, 157, 157);
+}
+.react_icons {
+  @include react_icons;
+  fill: rgb(53, 48, 41);
+}
+//media queries
+@include sm {
+  .app {
+    width: 100%;
+  }
+  .header {
+    padding: 0;
+    text-align: center;
+  }
+  .inputWrapper {
+    flex-direction: column;
+    input::placeholder {
+      text-align: center;
+    }
+    button {
+      padding: 0.6rem 0;
+    }
+  }
+}
+@include sm {
+  .btn_container {
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .react_icons {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
